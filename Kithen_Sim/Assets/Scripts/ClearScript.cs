@@ -5,14 +5,13 @@ using UnityEngine.UI;
 public class ClearScript : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] internal GameObject table;
-    private GameObject[] _tempCells, _resistCells, _densCells;
+    private GameObject[] _tempCells, _kallCells;
     [SerializeField] private Tasks _tasks;
 
     private void Awake()
     {
         _tempCells = GameObject.FindGameObjectsWithTag("Temperature");
-        _resistCells = GameObject.FindGameObjectsWithTag("Resistance");
-        _densCells = GameObject.FindGameObjectsWithTag("Density");
+        _kallCells = GameObject.FindGameObjectsWithTag("Kallor");
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -25,23 +24,15 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        foreach (GameObject resistCell in _resistCells)
+        foreach (GameObject KallCells in _kallCells)
         {
-            if (resistCell.TryGetComponent<Text>(out var resistText))
+            if (KallCells.TryGetComponent<Text>(out var resistText))
             {
                 resistText.text = "-";
             }
         }
 
-        foreach (GameObject densCell in _densCells)
-        {
-            if (densCell.TryGetComponent<Text>(out var densText))
-            {
-                densText.text = "-";
-            }
-        }
-/*
         _tasks.state = Tasks.States.Started;
-        _tasks.currentTask = Tasks.TasksNums.NULL;*/
+        _tasks.currentTask = Tasks.TasksNums.NULL;
     }
 }
