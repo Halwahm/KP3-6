@@ -32,7 +32,7 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        _tasks.state = Tasks.States.Started;
-        _tasks.currentTask = Tasks.TasksNums.NULL;
+/*        _tasks.state = Tasks.States.Started;
+        _tasks.currentTask = Tasks.TasksNums.NULL;*/
     }
 }

@@ -8,11 +8,6 @@ public class ShowTable : MonoBehaviour, IPointerClickHandler
     [SerializeField] internal GameObject _table;
     private bool isTableActive = false;
 
-    void Start()
-    {
-        _table.SetActive(false);
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         isTableActive = !isTableActive;

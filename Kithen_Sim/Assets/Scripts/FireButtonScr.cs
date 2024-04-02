@@ -9,8 +9,8 @@ public class FireButtonScr : MonoBehaviour
     [SerializeField] private ParticleSystem fireParticleSystem;
     [SerializeField] private AudioSource fireSound;
 
-    [SerializeField] private Button[] nextButton;
     [SerializeField] private Button[] otherButtons;
+    [SerializeField] private Button nextButton;
 
     private void Start()
     {
@@ -30,6 +30,7 @@ public class FireButtonScr : MonoBehaviour
     {
         ActivateOtherButtons();
         Invoke("TurnOnFire", 4f);
+        GetComponent<Button>().interactable = false;
     }
 
     private void TurnOnFire()
@@ -48,9 +49,6 @@ public class FireButtonScr : MonoBehaviour
 
     private void ActivateOtherButtons()
     {
-        foreach (Button button in nextButton)
-        {
-            button.interactable = true;
-        }
+         nextButton.interactable = true;
     }
 }

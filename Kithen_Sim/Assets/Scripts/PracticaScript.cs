@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PracticaScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class PracticaScript : MonoBehaviour, /*IPointerEnterHandler, IPointerExitHandler,*/ IPointerClickHandler
 {
     [SerializeField] private GameObject _view;
     [SerializeField] private GameObject _TaskPanel;
@@ -14,7 +14,7 @@ public class PracticaScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         _TaskPanel.SetActive(false);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+/*    public void OnPointerEnter(PointerEventData eventData)
     {
         _view.SetActive(true);
     }
@@ -22,7 +22,7 @@ public class PracticaScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData)
     {
         _view.SetActive(false);
-    }
+    }*/
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -31,10 +31,12 @@ public class PracticaScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (isTaskPanelActive)
         {
             _TaskPanel.SetActive(true);
+            _view.SetActive(true);
         }
         else
         {
             _TaskPanel.SetActive(false);
+            //_view.SetActive(false);
         }
     }
 }

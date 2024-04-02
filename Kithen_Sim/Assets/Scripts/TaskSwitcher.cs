@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public partial class Tasks : MonoBehaviour
 {
-    internal enum TasksNums
+/*    internal enum TasksNums
     {
         NULL,
         FirstTask,
@@ -11,7 +11,7 @@ public partial class Tasks : MonoBehaviour
         ThirdTask,
         FourthTask,
         FifthTask,
-    }
+    }*/
 
     private void Update()
     {

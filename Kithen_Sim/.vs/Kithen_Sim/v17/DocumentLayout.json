@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "D:\\My Files\\KP3-6\\Kithen_Sim\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\firebuttonscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\firebuttonscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\taskdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\taskdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\bwbtnscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bwbtnscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\pearlbtnscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pearlbtnscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\taskswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\taskswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\showtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\showtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\tablescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tablescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\clearscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\clearscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PearlBtnScr.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\PearlBtnScr.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\PearlBtnScr.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\PearlBtnScr.cs",
-              "RelativeToolTip": "Assets\\Scripts\\PearlBtnScr.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "ShowTable.cs",
+              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\ShowTable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ShowTable.cs",
+              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\ShowTable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ShowTable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T17:44:24.164Z",
+              "WhenOpened": "2024-04-02T18:41:46.093Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BWBtnScr.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BWBtnScr.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BWBtnScr.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BWBtnScr.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BWBtnScr.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Title": "ClearScript.cs",
+              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\ClearScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ClearScript.cs",
+              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\ClearScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ClearScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T17:41:45.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FireButtonScr.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\FireButtonScr.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\FireButtonScr.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\FireButtonScr.cs",
-              "RelativeToolTip": "Assets\\Scripts\\FireButtonScr.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAIwCEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T17:36:57.066Z",
+              "WhenOpened": "2024-04-02T17:38:47.317Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TaskDefinition.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\TaskDefinition.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TaskDefinition.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\TaskDefinition.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TaskDefinition.cs",
-              "ViewState": "AQIAAE0AAAAAAAAAAAAQwJ4AAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T15:00:07.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "TableScript.cs",
               "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\TableScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TableScript.cs",
               "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\TableScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\TableScript.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAYwAwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T14:55:13.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TaskSwitcher.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\TaskSwitcher.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TaskSwitcher.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\TaskSwitcher.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TaskSwitcher.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAYwA0AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T14:52:51.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Tasks.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\Tasks.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Tasks.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\Tasks.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Tasks.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T16:43:08.003Z",
               "EditorCaption": ""
             }
           ]
