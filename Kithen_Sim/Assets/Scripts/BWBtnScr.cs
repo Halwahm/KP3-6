@@ -2,11 +2,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Globalization;
+using System.Collections.Generic;
+using System;
 
 public class BWBtnScr : MonoBehaviour
 {
+    internal event Action<GameObject> onPrefabInstantiated;
+
+    private TableScript tableScript;
+    private FireButtonScr fireButton;
+
     [SerializeField] private Button[] _diactotherButtons;
-    [SerializeField] private Button[] _actotherButtons;
+    [SerializeField] private Button _actotherButton;
     [SerializeField] private GameObject porridgePrefab;
     [SerializeField] private GameObject waterPrefab;
     [SerializeField] private Vector3 porridgeSpawnPosition;
@@ -27,6 +35,8 @@ public class BWBtnScr : MonoBehaviour
 
     private void Start()
     {
+        tableScript = FindObjectOfType<TableScript>();
+        fireButton = FindObjectOfType<FireButtonScr>();
         DeactivateOtherButtons();
     }
 
@@ -38,44 +48,22 @@ public class BWBtnScr : MonoBehaviour
 
     private IEnumerator AnimationSequence()
     {
-        // Открываем крышку
         lidAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(1f);
 
-        // Перемещаем чашу к ёмкости
         bowlAnimator.SetTrigger("MoveToContainer");
         yield return new WaitForSeconds(1f);
 
-        // Создаем и перемещаем префаб с перловкой
         currentPorridge = Instantiate(porridgePrefab, porridgeSpawnPosition, Quaternion.identity);
 
-        // Создаем и перемещаем префаб с водой
         currentWater = Instantiate(waterPrefab, waterSpawnPosition, Quaternion.identity);
         currentWater.transform.localScale = waterSize;
 
-        // Возвращаем чашу с перловкой назад
         bowlAnimator.SetTrigger("MoveBack");
         yield return new WaitForSeconds(1f);
 
-        // Закрываем крышку
         lidAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(1f);
-    }
-
-    private void DeactivateOtherButtons()
-    {
-        foreach (Button button in _diactotherButtons)
-        {
-            button.interactable = false;
-        }
-    }
-
-    private void ActivateOtherButtons()
-    {
-        foreach (Button button in _actotherButtons)
-        {
-            button.interactable = true;
-        }
     }
 
     private IEnumerator StartTimer(float duration)
@@ -97,9 +85,41 @@ public class BWBtnScr : MonoBehaviour
         currentPorridge = Instantiate(porridgePrefab, newPorridgeSpawnPosition, Quaternion.Euler(newPorridgeRotation));
         currentWater = Instantiate(waterPrefab, newWaterSpawnPosition, Quaternion.Euler(newWaterRotation));
         currentWater.transform.localScale = newWaterSize;
+        onPrefabInstantiated?.Invoke(currentPorridge);
+        onPrefabInstantiated?.Invoke(currentWater);
         yield return new WaitForSeconds(1f);
         lidAnimator.SetTrigger("Close");
         timerText.text = "Перловка приготовлена, загляните в таблицу";
+
+        float temperature = fireButton.temperature;
+        float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(0); 
+        float calories = temperature * caloriesCoefficient * 0.79f;
+        FillTable(0, temperature, calories);
+
         ActivateOtherButtons();
+        yield return new WaitForSeconds(2.5f);
+        timerText.text = "";
+    }
+
+    private void FillTable(int rowIndex, float temperature, float calories)
+    {
+        if (tableScript.tempValue.Count > rowIndex && tableScript.kallValue.Count > rowIndex)
+        {
+            tableScript.tempValue[rowIndex].text = temperature.ToString();
+            tableScript.kallValue[rowIndex].text = calories.ToString();
+        }
+    }
+
+    private void DeactivateOtherButtons()
+    {
+        foreach (Button button in _diactotherButtons)
+        {
+            button.interactable = false;
+        }
+    }
+
+    private void ActivateOtherButtons()
+    {
+        _actotherButton.interactable = true;
     }
 }

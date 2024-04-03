@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -6,12 +7,28 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] internal GameObject table;
     private GameObject[] _tempCells, _kallCells;
-    [SerializeField] private Tasks _tasks;
+    [SerializeField] private GameObject _clearButton;
+    [SerializeField] private Button _activateButton;
+
+    private List<GameObject> allInstantiatedPrefabs = new List<GameObject>();
 
     private void Awake()
     {
+        _clearButton.SetActive(false);
         _tempCells = GameObject.FindGameObjectsWithTag("Temperature");
         _kallCells = GameObject.FindGameObjectsWithTag("Kallor");
+
+        WtrBtnScr wtrBtnScr = FindObjectOfType<WtrBtnScr>();
+        if (wtrBtnScr != null)
+            wtrBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;
+
+        PearlBtnScr pearlBtnScr = FindObjectOfType<PearlBtnScr>();
+        if (pearlBtnScr != null)
+            pearlBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;
+
+        BWBtnScr bwBtnScr = FindObjectOfType<BWBtnScr>();
+        if (bwBtnScr != null)
+            bwBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -23,7 +40,6 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
                 tempText.text = "-";
             }
         }
-
         foreach (GameObject KallCells in _kallCells)
         {
             if (KallCells.TryGetComponent<Text>(out var resistText))
@@ -31,8 +47,22 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
                 resistText.text = "-";
             }
         }
+        ClearAllInstantiatedPrefabs();
+        _activateButton.interactable = true;
+        _clearButton.SetActive(false);
+    }
 
-/*        _tasks.state = Tasks.States.Started;
-        _tasks.currentTask = Tasks.TasksNums.NULL;*/
+    private void ClearAllInstantiatedPrefabs()
+    {
+        foreach (GameObject prefab in allInstantiatedPrefabs)
+        {
+            Destroy(prefab);
+        }
+        allInstantiatedPrefabs.Clear();
+    }
+
+    public void AddToAllInstantiatedPrefabs(GameObject prefab)
+    {
+        allInstantiatedPrefabs.Add(prefab);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +9,17 @@ public class FireButtonScr : MonoBehaviour
 
     [SerializeField] private ParticleSystem fireParticleSystem;
     [SerializeField] private AudioSource fireSound;
+    [SerializeField] private ParticleSystem smokeParticleSystem;
 
     [SerializeField] private Button[] otherButtons;
     [SerializeField] private Button nextButton;
+    internal float temperature;
 
     private void Start()
     {
         DeactivateOtherButtons();
         fireParticleSystem.Stop();
+        smokeParticleSystem.Stop();
         doorAnim.SetBool("doorAnim", false);
         drovAnim.SetBool("drovAnim", false);
     }
@@ -28,14 +32,16 @@ public class FireButtonScr : MonoBehaviour
 
     public void ToggleFire()
     {
-        ActivateOtherButtons();
-        Invoke("TurnOnFire", 4f);
+        Invoke("TurnOnFire", 3f);
         GetComponent<Button>().interactable = false;
+        StartCoroutine(UpdateTemperature());
+        StartCoroutine(ActivateOtherButtons());
     }
 
     private void TurnOnFire()
     {
         fireParticleSystem.Play();
+        smokeParticleSystem.Play();
         fireSound.Play();
     }
 
@@ -47,8 +53,18 @@ public class FireButtonScr : MonoBehaviour
         }
     }
 
-    private void ActivateOtherButtons()
+    private IEnumerator ActivateOtherButtons()
     {
-         nextButton.interactable = true;
+        yield return new WaitForSeconds(3f);
+        nextButton.interactable = true;
+    }
+
+    private IEnumerator UpdateTemperature()
+    {
+        while (true)
+        {
+            temperature = Random.Range(200f, 270f);
+            yield return new WaitForSeconds(3f);
+        }
     }
 }

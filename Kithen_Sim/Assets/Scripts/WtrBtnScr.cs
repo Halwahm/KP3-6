@@ -2,9 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System;
 
 public class WtrBtnScr : MonoBehaviour
 {
+    internal event Action<GameObject> onPrefabInstantiated;
+
+    private TableScript tableScript;
+    private FireButtonScr fireButton;
+
     [SerializeField] private Button[] _diactotherButtons;
     [SerializeField] private GameObject waterPrefab;
     [SerializeField] private Vector3 waterSpawnPosition;
@@ -18,10 +24,13 @@ public class WtrBtnScr : MonoBehaviour
     [SerializeField] private float timerDuration = 12f;
 
     [SerializeField] private GameObject firstWater;
+    [SerializeField] private GameObject _clearButton;
     private GameObject currentWater;
 
     private void Start()
     {
+        tableScript = FindObjectOfType<TableScript>();
+        fireButton = FindObjectOfType<FireButtonScr>();
         DeactivateOtherButtons();
     }
 
@@ -33,34 +42,21 @@ public class WtrBtnScr : MonoBehaviour
 
     private IEnumerator AnimationSequence()
     {
-        // Открываем крышку
         lidAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(1f);
         Destroy(firstWater);
 
-        // Перемещаем чашу к ёмкости
         bowlAnimator.SetTrigger("MoveToContainer");
         yield return new WaitForSeconds(1f);
 
-        // Создаем и перемещаем префаб с водой
         currentWater = Instantiate(waterPrefab, waterSpawnPosition, Quaternion.identity);
         currentWater.transform.localScale = waterSize;
 
-        // Возвращаем чашу с перловкой назад
         bowlAnimator.SetTrigger("MoveBack");
         yield return new WaitForSeconds(1f);
 
-        // Закрываем крышку
         lidAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(1f);
-    }
-
-    private void DeactivateOtherButtons()
-    {
-        foreach (Button button in _diactotherButtons)
-        {
-            button.interactable = false;
-        }
     }
 
     private IEnumerator StartTimer(float duration)
@@ -80,10 +76,35 @@ public class WtrBtnScr : MonoBehaviour
         Destroy(currentWater);
         currentWater = Instantiate(waterPrefab, newWaterSpawnPosition, Quaternion.Euler(newWaterRotation));
         currentWater.transform.localScale = newWaterSize;
+        onPrefabInstantiated?.Invoke(currentWater);
         yield return new WaitForSeconds(1.3f);
         lidAnimator.SetTrigger("Close");
         timerText.text = "Вода вскипятилась, загляните в таблицу";
-        yield return new WaitForSeconds(5f);
+
+        float temperature = fireButton.temperature;
+        float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(0);
+        float calories = temperature * caloriesCoefficient * 0f;
+        FillTable(1, temperature, calories);
+
+        yield return new WaitForSeconds(2.5f);
         timerText.text = "";
+        _clearButton.SetActive(true);
+    }
+
+    private void FillTable(int rowIndex, float temperature, float calories)
+    {
+        if (tableScript.tempValue.Count > rowIndex && tableScript.kallValue.Count > rowIndex)
+        {
+            tableScript.tempValue[rowIndex].text = temperature.ToString();
+            tableScript.kallValue[rowIndex].text = calories.ToString();
+        }
+    }
+
+    private void DeactivateOtherButtons()
+    {
+        foreach (Button button in _diactotherButtons)
+        {
+            button.interactable = false;
+        }
     }
 }
