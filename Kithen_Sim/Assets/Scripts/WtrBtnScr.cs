@@ -10,6 +10,7 @@ public class WtrBtnScr : MonoBehaviour
 
     private TableScript tableScript;
     private FireButtonScr fireButton;
+    private GameObject currentWater;
 
     [SerializeField] private Button[] _diactotherButtons;
     [SerializeField] private GameObject waterPrefab;
@@ -22,10 +23,15 @@ public class WtrBtnScr : MonoBehaviour
     [SerializeField] private Animator bowlAnimator;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float timerDuration = 12f;
-
+    [SerializeField] private ParticleSystem vaporParticleSystem;
+    [SerializeField] private TMP_Text congratulationsText;
     [SerializeField] private GameObject firstWater;
     [SerializeField] private GameObject _clearButton;
-    private GameObject currentWater;
+
+    private void Awake()
+    {
+        vaporParticleSystem.Stop();
+    }
 
     private void Start()
     {
@@ -79,12 +85,14 @@ public class WtrBtnScr : MonoBehaviour
         onPrefabInstantiated?.Invoke(currentWater);
         yield return new WaitForSeconds(1.3f);
         lidAnimator.SetTrigger("Close");
+        vaporParticleSystem.Play();
         timerText.text = "Вода вскипятилась, загляните в таблицу";
 
         float temperature = fireButton.temperature;
         float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(0);
         float calories = temperature * caloriesCoefficient * 0f;
         FillTable(1, temperature, calories);
+        congratulationsText.text = "Поздравляем. Вы накормили целую роту!";
 
         yield return new WaitForSeconds(2.5f);
         timerText.text = "";

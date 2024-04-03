@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,7 +10,8 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
     private GameObject[] _tempCells, _kallCells;
     [SerializeField] private GameObject _clearButton;
     [SerializeField] private Button _activateButton;
-
+    [SerializeField] internal ParticleSystem[] vaporParticleSystems;
+    [SerializeField] private TMP_Text congratulationsText;
     private List<GameObject> allInstantiatedPrefabs = new List<GameObject>();
 
     private void Awake()
@@ -47,7 +49,12 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
                 resistText.text = "-";
             }
         }
+        foreach(ParticleSystem PS in vaporParticleSystems)
+        {
+            PS.Stop();
+        }
         ClearAllInstantiatedPrefabs();
+        congratulationsText.text = "";
         _activateButton.interactable = true;
         _clearButton.SetActive(false);
     }

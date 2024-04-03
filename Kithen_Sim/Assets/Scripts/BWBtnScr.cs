@@ -30,8 +30,15 @@ public class BWBtnScr : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float timerDuration = 20f;
 
+    [SerializeField] private ParticleSystem vaporParticleSystem;
+
     private GameObject currentPorridge;
     private GameObject currentWater;
+
+    private void Awake()
+    {
+        vaporParticleSystem.Stop();
+    }
 
     private void Start()
     {
@@ -85,9 +92,12 @@ public class BWBtnScr : MonoBehaviour
         currentPorridge = Instantiate(porridgePrefab, newPorridgeSpawnPosition, Quaternion.Euler(newPorridgeRotation));
         currentWater = Instantiate(waterPrefab, newWaterSpawnPosition, Quaternion.Euler(newWaterRotation));
         currentWater.transform.localScale = newWaterSize;
+
         onPrefabInstantiated?.Invoke(currentPorridge);
         onPrefabInstantiated?.Invoke(currentWater);
+
         yield return new WaitForSeconds(1f);
+        vaporParticleSystem.Play();
         lidAnimator.SetTrigger("Close");
         timerText.text = "Перловка приготовлена, загляните в таблицу";
 

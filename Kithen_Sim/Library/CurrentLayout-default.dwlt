@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1440
     height: 819.7143
-  m_MinSize: {x: 678, y: 492}
+  m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 225
+  controlID: 11715
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,10 +144,10 @@ MonoBehaviour:
     y: 0
     width: 1076
     height: 819.7143
-  m_MinSize: {x: 402, y: 492}
+  m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 226
+  controlID: 11805
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,10 +169,10 @@ MonoBehaviour:
     y: 0
     width: 1076
     height: 532
-  m_MinSize: {x: 402, y: 221}
-  m_MaxSize: {x: 8002, y: 4021}
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 227
+  controlID: 11806
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -400,7 +400,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6cfbffff
+      m_ExpandedIDs: 8433ffffa633ffff9c34ffff6cfbffffbe3e0000c83e0000ec3f00008a430000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -460,9 +460,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.752071, y: -0.55906284, z: 2.321227}
+    m_Target: {x: 440.6264, y: 145.72995, z: 79.34888}
     speed: 2
-    m_Value: {x: 3.752071, y: -0.55906284, z: 2.321227}
+    m_Value: {x: 440.6264, y: 145.72995, z: 79.34888}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -509,20 +509,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.111567214, y: 0.0442014, z: 0.0023667787, w: 0.9939989}
+    m_Target: {x: -0.0359694, y: -0.015455898, z: -0.007812047, w: -1.0004807}
     speed: 2
-    m_Value: {x: -0.11156721, y: -0.044201396, z: -0.0023667784, w: -0.9939988}
+    m_Value: {x: -0.037422292, y: -0.015447934, z: -0.0077788034, w: -0.9991498}
   m_Size:
-    m_Target: 5.0832176
+    m_Target: 218.2707
     speed: 2
-    m_Value: 5.0832176
+    m_Value: 218.2707
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 0.14093088
-    m_SpeedNormalized: 0.07000044
+    m_Speed: 2
+    m_SpeedNormalized: 1
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -724,22 +724,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Sounds
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Sounds
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\My Files\KP3-6\Kithen_Sim
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 9.285706}
-    m_SelectedIDs: ea570000
-    m_LastClickedID: 22506
-    m_ExpandedIDs: 00000000c2570000c4570000c657000000ca9a3b
+    scrollPos: {x: 0, y: 77.285706}
+    m_SelectedIDs: 04580000
+    m_LastClickedID: 22532
+    m_ExpandedIDs: 00000000da570000dc570000de5700002a7500002c7500002e75000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -767,7 +767,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c2570000c4570000c657000000ca9a3b
+    m_ExpandedIDs: 00000000da570000dc570000de5700002a7500002c7500002e75000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -795,7 +795,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c62300000e3f0000fc420000d4ccffff00000000
+    m_ExpandedInstanceIDs: c62300000e3f0000fc420000d4ccffff000000000e460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 16054
+  m_LastSelectedObjectID: 16346
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
