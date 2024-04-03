@@ -910,4 +910,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/My Files/KP3-6/Kithen_Sim.exe
+  playerPath: D:/My Files/KP3-6/Build/Kithen_Sim.exe

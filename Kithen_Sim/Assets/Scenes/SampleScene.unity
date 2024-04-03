@@ -23914,6 +23914,7 @@ MonoBehaviour:
   - {fileID: 41428791}
   - {fileID: 2059856895}
   - {fileID: 1542246013}
+  congratulationsText: {fileID: 2074120478}
 --- !u!222 &1314656227164398132
 CanvasRenderer:
   m_ObjectHideFlags: 0
