@@ -8,13 +8,12 @@ using System;
 
 public class BWBtnScr : MonoBehaviour
 {
-    internal event Action<GameObject> onPrefabInstantiated;
-
-    private TableScript tableScript;
-    private FireButtonScr fireButton;
-
     [SerializeField] private Button[] _diactotherButtons;
     [SerializeField] private Button _actotherButton;
+ 
+    /*internal event Action<GameObject> onPrefabInstantiated;
+    private TableScript tableScript;
+    private FireButtonScr fireButton;
     [SerializeField] private GameObject porridgePrefab;
     [SerializeField] private GameObject waterPrefab;
     [SerializeField] private Vector3 porridgeSpawnPosition;
@@ -33,27 +32,27 @@ public class BWBtnScr : MonoBehaviour
     [SerializeField] private ParticleSystem vaporParticleSystem;
 
     private GameObject currentPorridge;
-    private GameObject currentWater;
+    private GameObject currentWater;*/
 
-    private void Awake()
+/*    private void Awake()
     {
         vaporParticleSystem.Stop();
-    }
+    }*/
 
     private void Start()
     {
-        tableScript = FindObjectOfType<TableScript>();
-        fireButton = FindObjectOfType<FireButtonScr>();
+/*        tableScript = FindObjectOfType<TableScript>();
+        fireButton = FindObjectOfType<FireButtonScr>();*/
         DeactivateOtherButtons();
     }
 
-    public void StartAnimationSequence()
+/*    public void StartAnimationSequence()
     {
         StartCoroutine(AnimationSequence());
         StartCoroutine(StartTimer(timerDuration));
-    }
+    }*/
 
-    private IEnumerator AnimationSequence()
+/*    private IEnumerator AnimationSequence()
     {
         lidAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(1f);
@@ -71,9 +70,9 @@ public class BWBtnScr : MonoBehaviour
 
         lidAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(1f);
-    }
+    }*/
 
-    private IEnumerator StartTimer(float duration)
+ /*   private IEnumerator StartTimer(float duration)
     {
         DeactivateOtherButtons();
         float timeLeft = duration;
@@ -109,16 +108,16 @@ public class BWBtnScr : MonoBehaviour
         ActivateOtherButtons();
         yield return new WaitForSeconds(2.5f);
         timerText.text = "";
-    }
+    }*/
 
-    private void FillTable(int rowIndex, float temperature, float calories)
+/*    private void FillTable(int rowIndex, float temperature, float calories)
     {
         if (tableScript.tempValue.Count > rowIndex && tableScript.kallValue.Count > rowIndex)
         {
             tableScript.tempValue[rowIndex].text = temperature.ToString();
             tableScript.kallValue[rowIndex].text = calories.ToString();
         }
-    }
+    }*/
 
     private void DeactivateOtherButtons()
     {

@@ -29,8 +29,8 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
             pearlBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;
 
         BWBtnScr bwBtnScr = FindObjectOfType<BWBtnScr>();
-        if (bwBtnScr != null)
-            bwBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;
+/*        if (bwBtnScr != null)
+            bwBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;*/
     }
 
     public void OnPointerClick(PointerEventData eventData)
