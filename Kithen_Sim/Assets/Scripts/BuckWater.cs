@@ -11,18 +11,22 @@ public class BuckWater : MonoBehaviour
     [SerializeField] private ParticleSystem vaporParticleSystem;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float timerDuration = 12f;
+    [SerializeField] private Vector3 newWaterSpawnPosition;
+    [SerializeField] private Vector3 newWaterSize;
+    [SerializeField] private KrishkaScript krishkaScript;
 
     private TableScript tableScript;
     private FireButtonScr fireButton;
 
     private GameObject currentWater;
-    internal bool isBPressed = false;
+    private GameObject NewWater;
     private bool hasSinglePressOccurred = false;
 
     private void Start()
     {
         tableScript = FindObjectOfType<TableScript>();
         fireButton = FindObjectOfType<FireButtonScr>();
+        currentWater.SetActive(true);
     }
 
     private void Awake()
@@ -30,31 +34,37 @@ public class BuckWater : MonoBehaviour
         vaporParticleSystem.Stop();
         currentWater = Instantiate(waterPrefab, WaterspawnPosition, Quaternion.identity);
         currentWater.transform.localScale = WaterSize;
-        currentWater.SetActive(true);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        bool isOpen = krishkaScript.krishkaAnim.GetBool("Open");
+        if (Input.GetMouseButtonDown(0))
         {
-            isBPressed = true;
-            if (!hasSinglePressOccurred)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                StartCoroutine(StartTimer(timerDuration));
-                hasSinglePressOccurred = true;
-                buckWater.SetTrigger("MoveToContainer");
-                StartCoroutine(MoveBackAfterDelay(1f));
-                currentWater.SetActive(false);
+                if (hit.collider.gameObject == gameObject)
+                {
+                    if (isOpen && fireButton.temperature != 0f && !hasSinglePressOccurred)
+                    {
+                        hasSinglePressOccurred = true;
+                        buckWater.SetTrigger("MoveToContainer");
+                        StartCoroutine(MoveBackAfterDelay(1.5f));
+                        currentWater.SetActive(false);
+                        StartCoroutine(StartTimer(timerDuration));
+                    }
+                    else if (isOpen && hasSinglePressOccurred && fireButton.temperature != 0f)
+                        StartCoroutine(MoveOneMore(1f));
+                    else if (!isOpen && hasSinglePressOccurred && fireButton.temperature != 0f)
+                        timerText.text = "Откройте крышку!";
+                    else if (!isOpen && fireButton.temperature != 0f)
+                        timerText.text = "Откройте крышку";
+                    else if (fireButton.temperature == 0f)
+                        timerText.text = "Зажгите огонь!";
+                }
             }
-            else
-            {
-                StartCoroutine(MoveOneMore(1f));
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.N))
-        {
-            isBPressed = false;
         }
     }
 
@@ -62,15 +72,19 @@ public class BuckWater : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         buckWater.SetTrigger("MoveBack");
+        NewWater = Instantiate(waterPrefab, newWaterSpawnPosition, Quaternion.identity);
+        NewWater.transform.localScale = newWaterSize;
     }
 
     private IEnumerator MoveOneMore(float delay)
     {
         buckWater.SetTrigger("MoveOneMore");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.8f);
+        NewWater.SetActive(false);
+        yield return new WaitForSeconds(delay);
         currentWater.SetActive(true);
         vaporParticleSystem.Play();
-        timerText.text = "Вода вскипятилась, загляните в таблицу";
+        timerText.text = "Вода вскипелась, загляните в таблицу";
         float temperature = fireButton.temperature;
         float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(1);
         float calories = temperature * caloriesCoefficient;
@@ -90,6 +104,14 @@ public class BuckWater : MonoBehaviour
 
     private IEnumerator StartTimer(float duration)
     {
+        bool isOpen = krishkaScript.krishkaAnim.GetBool("Open");
+        while (isOpen)
+        {
+            timerText.text = "Закройте крышку";
+            yield return null; // Подождать один кадр
+            isOpen = krishkaScript.krishkaAnim.GetBool("Open");
+        }
+
         float timeLeft = duration;
         while (timeLeft > 0)
         {
@@ -97,6 +119,6 @@ public class BuckWater : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timeLeft -= 1f;
         }
-        timerText.text = "Вода вскипятилась, можно переливать";
+        timerText.text = "Вода вскипела, можно переливать";
     }
 }

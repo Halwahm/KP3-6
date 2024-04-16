@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BuckPearl : MonoBehaviour
 {
-    internal event Action<GameObject> onPrefabInstantiated;
+    private BuckAllWater buckAllWater;
     private TableScript tableScript;
     private FireButtonScr fireButton;
     [SerializeField] private Animator buckPearl;
@@ -17,49 +17,51 @@ public class BuckPearl : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float timerDuration = 5f;
     [SerializeField] private ParticleSystem vaporParticleSystem;
+    [SerializeField] private Vector3 newPorridgeSpawnPosition;
 
     private GameObject currentPorridge;
     private GameObject currentWater;
+    private GameObject NewPorridge;
 
-    internal bool isBPressed = false;
     private bool hasSinglePressOccurred = false;
 
     private void Awake()
     {
         vaporParticleSystem.Stop();
         currentPorridge = Instantiate(prefabToInstantiate, PorridgespawnPosition, Quaternion.identity);
-        currentPorridge.SetActive(true);
     }
 
     private void Start()
     {
+        buckAllWater = FindObjectOfType<BuckAllWater>();
         tableScript = FindObjectOfType<TableScript>();
         fireButton = FindObjectOfType<FireButtonScr>();
+        currentPorridge.SetActive(true);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetMouseButtonDown(0))
         {
-            isBPressed = true;
-
-            if (!hasSinglePressOccurred)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                StartCoroutine(StartTimer(timerDuration));
-                hasSinglePressOccurred = true;
-                buckPearl.SetTrigger("MoveToContainer");
-                StartCoroutine(MoveBackAfterDelay(1f));
-                currentPorridge.SetActive(false);
+                if (hit.collider.gameObject == gameObject)
+                {
+                    timerText.text = "";
+                    if (!hasSinglePressOccurred)
+                    {
+                        currentPorridge.SetActive(false);
+                        StartCoroutine(StartTimer(timerDuration));
+                        hasSinglePressOccurred = true;
+                        buckPearl.SetTrigger("MoveToContainer");
+                        StartCoroutine(MoveBackAfterDelay(1.5f));
+                    }
+                    else
+                        StartCoroutine(MoveOneMore(1.5f));
+                }
             }
-            else
-            {
-                StartCoroutine(MoveOneMore(1f));
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.M))
-        {
-            isBPressed = false;
         }
     }
 
@@ -67,12 +69,17 @@ public class BuckPearl : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         buckPearl.SetTrigger("MoveBack");
+        NewPorridge = Instantiate(prefabToInstantiate, newPorridgeSpawnPosition, Quaternion.identity);
+        NewPorridge.SetActive(true);
     }
 
     private IEnumerator MoveOneMore(float delay)
     {
         buckPearl.SetTrigger("MoveOneMore");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.8f);
+        NewPorridge.SetActive(false);
+        buckAllWater.OnMoveBackCompleted();
+        yield return new WaitForSeconds(delay);
         currentPorridge.SetActive(true);
         currentWater = Instantiate(waterBuck, waterSpawnPosition, Quaternion.identity);
         currentWater.transform.localScale = waterSize;

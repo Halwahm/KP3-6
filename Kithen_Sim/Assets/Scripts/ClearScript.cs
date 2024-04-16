@@ -20,7 +20,7 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
         _tempCells = GameObject.FindGameObjectsWithTag("Temperature");
         _kallCells = GameObject.FindGameObjectsWithTag("Kallor");
 
-        WtrBtnScr wtrBtnScr = FindObjectOfType<WtrBtnScr>();
+/*        WtrBtnScr wtrBtnScr = FindObjectOfType<WtrBtnScr>();
         if (wtrBtnScr != null)
             wtrBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;
 
@@ -29,7 +29,7 @@ public class ClearScript : MonoBehaviour, IPointerClickHandler
             pearlBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;
 
         BWBtnScr bwBtnScr = FindObjectOfType<BWBtnScr>();
-/*        if (bwBtnScr != null)
+        if (bwBtnScr != null)
             bwBtnScr.onPrefabInstantiated += AddToAllInstantiatedPrefabs;*/
     }
 

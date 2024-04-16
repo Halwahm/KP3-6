@@ -7,13 +7,10 @@ public class FireButtonScr : MonoBehaviour
     [SerializeField] private ParticleSystem fireParticleSystem;
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private ParticleSystem smokeParticleSystem;
-
-    [SerializeField] private Button[] otherButtons;
-    internal float temperature;
+    internal float temperature = 0f;
 
     private void Start()
     {
-        DeactivateOtherButtons();
         fireParticleSystem.Stop();
         smokeParticleSystem.Stop();
     }
@@ -30,14 +27,6 @@ public class FireButtonScr : MonoBehaviour
         fireParticleSystem.Play();
         smokeParticleSystem.Play();
         fireSound.Play();
-    }
-
-    private void DeactivateOtherButtons()
-    {
-        foreach (Button button in otherButtons)
-        {
-            button.interactable = false;
-        }
     }
 
     private IEnumerator UpdateTemperature()
