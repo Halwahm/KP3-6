@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\My Files\\KP3-6\\Kithen_Sim\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\firebuttonscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\firebuttonscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\drovain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\drovain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\krishkascript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\krishkascript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\clearscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\clearscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\buckpearl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buckpearl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\firebuttonscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\firebuttonscr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\buckwater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,12 +23,8 @@
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buckwheat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\drovain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\drovain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\doorscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\doorscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\buckpearl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buckpearl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,14 +39,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DrovaIn.cs",
+              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\DrovaIn.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DrovaIn.cs",
+              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\DrovaIn.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DrovaIn.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAYwCcAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T16:24:52.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FireButtonScr.cs",
               "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\FireButtonScr.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FireButtonScr.cs",
               "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\FireButtonScr.cs",
               "RelativeToolTip": "Assets\\Scripts\\FireButtonScr.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "ViewState": "AQIAADQAAAAAAAAAAAAuwEUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T19:58:30.54Z",
+              "WhenOpened": "2024-04-17T16:20:46.762Z",
               "EditorCaption": ""
             },
             {
@@ -65,80 +70,45 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\KrishkaScript.cs",
               "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\KrishkaScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\KrishkaScript.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T19:57:39.478Z",
+              "WhenOpened": "2024-04-17T16:15:39.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClearScript.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\ClearScript.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ClearScript.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\ClearScript.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ClearScript.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAIwBUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T19:57:16.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DoorScript.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\DoorScript.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\DoorScript.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\DoorScript.cs",
-              "RelativeToolTip": "Assets\\Scripts\\DoorScript.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAxwAwAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T19:39:40.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DrovaIn.cs",
-              "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\DrovaIn.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\DrovaIn.cs",
-              "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\DrovaIn.cs",
-              "RelativeToolTip": "Assets\\Scripts\\DrovaIn.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T19:38:38.948Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "BuckWater.cs",
               "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BuckWater.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BuckWater.cs",
               "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BuckWater.cs",
               "RelativeToolTip": "Assets\\Scripts\\BuckWater.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEgAAAAIAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T17:39:43.675Z"
+              "WhenOpened": "2024-04-17T14:08:21.419Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "BuckWheat.cs",
               "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BuckWheat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BuckWheat.cs",
               "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BuckWheat.cs",
               "RelativeToolTip": "Assets\\Scripts\\BuckWheat.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T14:30:17.161Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "BuckPearl.cs",
               "DocumentMoniker": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BuckPearl.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BuckPearl.cs",
               "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\BuckPearl.cs",
               "RelativeToolTip": "Assets\\Scripts\\BuckPearl.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T15:53:35.808Z"
             }

@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,15 @@ public class FireButtonScr : MonoBehaviour
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private ParticleSystem smokeParticleSystem;
     internal float temperature = 0f;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private GameObject targetGameObject;
+    [SerializeField] private Material newMaterial;
+    private Material originalMaterial;
+
+    [SerializeField] private KrishkaScript krishkaScript;
+    [SerializeField] private GameObject KrishkaGameObject;
+    [SerializeField] private Material KrishkaMaterial;
+    private Material originalKrishkaMaterial;
 
     private void Start()
     {
@@ -20,6 +30,8 @@ public class FireButtonScr : MonoBehaviour
         Invoke(nameof(TurnOnFire), 0.5f);
         GetComponent<Button>().interactable = false;
         StartCoroutine(UpdateTemperature());
+        timerText.text = "“еперь откройте крышку и вскип€тите воду";
+        SetMaterial();
     }
 
     private void TurnOnFire()
@@ -35,6 +47,37 @@ public class FireButtonScr : MonoBehaviour
         {
             temperature = Random.Range(200f, 270f);
             yield return new WaitForSeconds(3f);
+        }
+    }
+
+    internal void SetMaterial()
+    {
+        Renderer renderer = targetGameObject.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            if (originalMaterial == null)
+                originalMaterial = renderer.material;
+            renderer.material = newMaterial;
+        }
+        Renderer rendererKrish = KrishkaGameObject.GetComponent<Renderer>();
+        if(rendererKrish != null)
+        {
+            if (originalMaterial == null)
+                originalMaterial = rendererKrish.material;
+            rendererKrish.material = newMaterial;
+        }
+    }
+
+    internal void ResetMaterial()
+    {
+        if (targetGameObject != null && originalMaterial != null && KrishkaGameObject != null)
+        {
+            Renderer renderer = targetGameObject.GetComponent<Renderer>();
+            if (renderer != null)
+                renderer.material = originalMaterial;
+            Renderer rendererKrish = KrishkaGameObject.GetComponent<Renderer>();
+            if (rendererKrish != null)
+                rendererKrish.material = originalMaterial;
         }
     }
 }

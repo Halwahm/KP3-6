@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
-using System;
 using TMPro;
 
 public class BuckWheat : MonoBehaviour
 {
+    internal bool isDone = false;
     private BuckAllWater buckAllWater;
     private TableScript tableScript;
     private FireButtonScr fireButton; 
@@ -18,10 +18,15 @@ public class BuckWheat : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float timerDuration = 5f;
     [SerializeField] private Vector3 newPorridgeSpawnPosition;
+    [SerializeField] private GameObject targetGameObject;
+    [SerializeField] private Material newMaterial;
+    [SerializeField] private BuckAllWater allWaterScript;
+    [SerializeField] private KrishkaScript krishkaScript;
 
     private GameObject currentPorridge;
     private GameObject currentWater;
     private GameObject NewPorridge;
+    private Material originalMaterial;
 
     private bool hasSinglePressOccurred = false;
 
@@ -41,6 +46,7 @@ public class BuckWheat : MonoBehaviour
 
     private void Update()
     {
+        bool isOpen = krishkaScript.krishkaAnim.GetBool("Open");
         if (Input.GetMouseButtonDown(0)) 
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -50,21 +56,32 @@ public class BuckWheat : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     timerText.text = "";
-                    if (!hasSinglePressOccurred)
+                    if (isOpen && fireButton.temperature != 0f && !hasSinglePressOccurred 
+                        && buckAllWater.IsMoveBackTriggerSet && buckAllWater.isDone)
                     {
                         currentPorridge.SetActive(false);
                         StartCoroutine(StartTimer(timerDuration));
+                        allWaterScript.ResetMaterial();
                         hasSinglePressOccurred = true;
                         buckWheat.SetTrigger("MoveToContainer");
                         StartCoroutine(MoveBackAfterDelay(1.5f));
                     }
-                    else
+                    else if (isOpen && hasSinglePressOccurred && fireButton.temperature != 0f)
                         StartCoroutine(MoveOneMore(1.5f));
+                    else if (!isOpen && hasSinglePressOccurred && fireButton.temperature != 0f)
+                        timerText.text = "Откройте крышку!";
+                    else if (!isOpen && fireButton.temperature != 0f)
+                        timerText.text = "Откройте крышку!";
+                    else if (fireButton.temperature == 0f)
+                        timerText.text = "Зажгите огонь!";
+                    else if (!buckAllWater.IsMoveBackTriggerSet)
+                        timerText.text = "Налейте воды и вскипятите";
+                    else if (!buckAllWater.isDone)
+                        timerText.text = "Сначала вскипятите воду";
                 }
             }
         }
     }
-
 
     private IEnumerator MoveBackAfterDelay(float delay)
     {
@@ -79,6 +96,7 @@ public class BuckWheat : MonoBehaviour
         buckWheat.SetTrigger("MoveOneMore");
         yield return new WaitForSeconds(0.8f);
         NewPorridge.SetActive(false);
+        allWaterScript.ResetMaterial();
         buckAllWater.OnMoveBackCompleted();
         yield return new WaitForSeconds(delay);
         currentPorridge = Instantiate(prefabToInstantiate, PorridgespawnPosition, Quaternion.identity);
@@ -88,15 +106,27 @@ public class BuckWheat : MonoBehaviour
         vaporParticleSystem.Play();
         float temperature = fireButton.temperature;
         timerText.text = "Гречка приготовилась,загляните в таблицу";
+        isDone = true;
         float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(2);
         float calories = temperature * caloriesCoefficient * 0.79f;
         FillTable(2, temperature, calories);
         yield return new WaitForSeconds(2.5f);
+        timerText.text = "Вскипятите воду для ещё одной каши";
+        SetMaterial();
+        yield return new WaitForSeconds(2f);
         timerText.text = "";
     }
 
     private IEnumerator StartTimer(float duration)
     {
+        bool isOpen = krishkaScript.krishkaAnim.GetBool("Open");
+        while (isOpen)
+        {
+            timerText.text = "Закройте крышку";
+            yield return null; // Подождать один кадр
+            isOpen = krishkaScript.krishkaAnim.GetBool("Open");
+        }
+
         float timeLeft = duration;
         while (timeLeft > 0)
         {
@@ -105,6 +135,7 @@ public class BuckWheat : MonoBehaviour
             timeLeft -= 1f;
         }
         timerText.text = "Гречка готова, можно доставать";
+        allWaterScript.SetMaterial();
     }
 
     private void FillTable(int rowIndex, float temperature, float calories)
@@ -113,6 +144,17 @@ public class BuckWheat : MonoBehaviour
         {
             tableScript.tempValue[rowIndex].text = temperature.ToString();
             tableScript.kallValue[rowIndex].text = calories.ToString();
+        }
+    }
+
+    internal void SetMaterial()
+    {
+        Renderer renderer = targetGameObject.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            if (originalMaterial == null)
+                originalMaterial = renderer.material;
+            renderer.material = newMaterial;
         }
     }
 }

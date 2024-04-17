@@ -7,7 +7,7 @@ public class BuckAllWater : MonoBehaviour
 {
     public event Action MoveBackCompleted;
 
-    [SerializeField] private Animator buckWater;
+    [SerializeField] internal Animator buckWater;
     [SerializeField] private GameObject prefabToInstantiate;
     [SerializeField] private Vector3 WaterspawnPosition;
     [SerializeField] private Vector3 WaterSize;
@@ -17,9 +17,22 @@ public class BuckAllWater : MonoBehaviour
     [SerializeField] private float timerDuration = 5f;
     [SerializeField] private KrishkaScript krishkaScript;
     [SerializeField] private FireButtonScr fireButton;
+    [SerializeField] private BuckWater waterScript;
+    [SerializeField] private GameObject targetGameObject;
+    [SerializeField] private Material newMaterial;
+    [SerializeField] private GameObject SectargetGameObject;
 
     private GameObject currentWater;
     private GameObject NewWater;
+    private Material originalMaterial;
+    private BuckWater BWScript;
+    internal bool isDone = false;
+    internal bool isDoneSec = false;
+
+    internal bool IsMoveBackTriggerSet
+    {
+        get { return buckWater.GetCurrentAnimatorStateInfo(0).IsName("AllWater_MoveBack"); }
+    }
 
     private void Awake()
     {
@@ -29,6 +42,7 @@ public class BuckAllWater : MonoBehaviour
 
     private void Start()
     {
+        BWScript = FindObjectOfType<BuckWater>();
         currentWater.SetActive(true);
     }
 
@@ -43,10 +57,11 @@ public class BuckAllWater : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    if (isOpen && fireButton.temperature != 0f)
+                    if (isOpen && fireButton.temperature != 0f && BWScript.isDone)
                     {
                         buckWater.SetTrigger("MoveToContainer");
                         StartCoroutine(MoveBackAfterDelay(1.5f));
+                        waterScript.ResetMaterial();
                         currentWater.SetActive(false);
                         StartCoroutine(StartTimer(timerDuration));
                     }
@@ -54,6 +69,8 @@ public class BuckAllWater : MonoBehaviour
                         timerText.text = "Откройте крышку";
                     else if (fireButton.temperature == 0f)
                         timerText.text = "Зажгите огонь!";
+                    else if (!BWScript.isDone)
+                        timerText.text = "Сначала вскипятите воду для питья!";
                 }
             }
         }
@@ -69,6 +86,9 @@ public class BuckAllWater : MonoBehaviour
         currentWater.SetActive(true);
         MoveBackCompleted?.Invoke();
     }
+
+    private bool isMaterialSet = false;
+    private bool isSecondMaterialSet = false;
 
     private IEnumerator StartTimer(float duration)
     {
@@ -87,11 +107,60 @@ public class BuckAllWater : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timeLeft -= 1f;
         }
-        timerText.text = "Вода вскипела, можно открыть крышку и засыпать кашу";
+        if (!isMaterialSet)
+        {
+            timerText.text = "Вода вскипела, можно открыть крышку и засыпать кашу";
+            SetMaterial();
+            isMaterialSet = true;
+            isDone = true;
+        }
+        else if (!isSecondMaterialSet)
+        {
+            timerText.text = "Вода вскипела, можно открыть крышку и засыпать кашу";
+            SetSecMaterial();
+            isSecondMaterialSet = true;
+            isDoneSec = true;
+        }
+        
     }
 
     internal void OnMoveBackCompleted()
     {
         NewWater.SetActive(false);
+    }
+
+    internal void SetMaterial()
+    {
+        Renderer renderer = targetGameObject.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            if (originalMaterial == null)
+                originalMaterial = renderer.material;
+            renderer.material = newMaterial;
+        }
+    }
+
+    internal void SetSecMaterial()
+    {
+        Renderer renderer2 = SectargetGameObject.GetComponent<Renderer>();
+        if (renderer2 != null)
+        {
+            if (originalMaterial == null)
+                originalMaterial = renderer2.material;
+            renderer2.material = newMaterial;
+        }
+    }
+
+    internal void ResetMaterial()
+    {
+        if (targetGameObject != null && originalMaterial != null)
+        {
+            Renderer renderer = targetGameObject.GetComponent<Renderer>();
+            Renderer renderer2 = SectargetGameObject.GetComponent<Renderer>();
+            if (renderer != null)
+                renderer.material = originalMaterial;
+            if (renderer2 != null)
+                renderer2.material = originalMaterial;
+        }
     }
 }

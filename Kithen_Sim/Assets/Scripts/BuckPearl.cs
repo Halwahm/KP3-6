@@ -1,10 +1,11 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class BuckPearl : MonoBehaviour
 {
+    internal bool isDone = false;
+    private BuckWheat BwScript;
     private BuckAllWater buckAllWater;
     private TableScript tableScript;
     private FireButtonScr fireButton;
@@ -18,10 +19,15 @@ public class BuckPearl : MonoBehaviour
     [SerializeField] private float timerDuration = 5f;
     [SerializeField] private ParticleSystem vaporParticleSystem;
     [SerializeField] private Vector3 newPorridgeSpawnPosition;
+    [SerializeField] private Material newMaterial;
+    [SerializeField] private BuckAllWater allWaterScript;
+    [SerializeField] private KrishkaScript krishkaScript;
+    [SerializeField] private GameObject targetGameObject;
 
     private GameObject currentPorridge;
     private GameObject currentWater;
     private GameObject NewPorridge;
+    private Material originalMaterial;
 
     private bool hasSinglePressOccurred = false;
 
@@ -33,6 +39,7 @@ public class BuckPearl : MonoBehaviour
 
     private void Start()
     {
+        BwScript = FindObjectOfType<BuckWheat>();
         buckAllWater = FindObjectOfType<BuckAllWater>();
         tableScript = FindObjectOfType<TableScript>();
         fireButton = FindObjectOfType<FireButtonScr>();
@@ -41,6 +48,7 @@ public class BuckPearl : MonoBehaviour
 
     private void Update()
     {
+        bool isOpen = krishkaScript.krishkaAnim.GetBool("Open");
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -50,16 +58,30 @@ public class BuckPearl : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     timerText.text = "";
-                    if (!hasSinglePressOccurred)
+                    if (isOpen && fireButton.temperature != 0f && !hasSinglePressOccurred
+                        && buckAllWater.IsMoveBackTriggerSet && buckAllWater.isDoneSec && BwScript.isDone)
                     {
                         currentPorridge.SetActive(false);
                         StartCoroutine(StartTimer(timerDuration));
+                        allWaterScript.ResetMaterial();
                         hasSinglePressOccurred = true;
                         buckPearl.SetTrigger("MoveToContainer");
                         StartCoroutine(MoveBackAfterDelay(1.5f));
                     }
-                    else
+                    else if (isOpen && hasSinglePressOccurred && fireButton.temperature != 0f)
                         StartCoroutine(MoveOneMore(1.5f));
+                    else if (!isOpen && hasSinglePressOccurred && fireButton.temperature != 0f)
+                        timerText.text = "Откройте крышку!";
+                    else if (!isOpen && fireButton.temperature != 0f)
+                        timerText.text = "Откройте крышку!";
+                    else if (fireButton.temperature == 0f)
+                        timerText.text = "Зажгите огонь!";
+                    else if (buckAllWater.IsMoveBackTriggerSet)
+                        timerText.text = "Налейте воды и вскипятите";
+                    else if (!buckAllWater.isDoneSec)
+                        timerText.text = "Сначала вскипятите воду";
+                    else if (!BwScript.isDone)
+                        timerText.text = "Сначала приготовьте гречку";
                 }
             }
         }
@@ -78,6 +100,7 @@ public class BuckPearl : MonoBehaviour
         buckPearl.SetTrigger("MoveOneMore");
         yield return new WaitForSeconds(0.8f);
         NewPorridge.SetActive(false);
+        allWaterScript.ResetMaterial();
         buckAllWater.OnMoveBackCompleted();
         yield return new WaitForSeconds(delay);
         currentPorridge.SetActive(true);
@@ -86,15 +109,26 @@ public class BuckPearl : MonoBehaviour
         vaporParticleSystem.Play();
         float temperature = fireButton.temperature;
         timerText.text = "Перловка приготовилась,загляните в таблицу";
+        isDone = true;
         float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(0);
         float calories = temperature * caloriesCoefficient * 0.79f;
         FillTable(0, temperature, calories);
         yield return new WaitForSeconds(2.5f);
+        timerText.text = "Вскипятите воду для ещё одной каши";
+        SetMaterial();
+        yield return new WaitForSeconds(2f);
         timerText.text = "";
     }
 
     private IEnumerator StartTimer(float duration)
     {
+        bool isOpen = krishkaScript.krishkaAnim.GetBool("Open");
+        while (isOpen)
+        {
+            timerText.text = "Закройте крышку";
+            yield return null; // Подождать один кадр
+            isOpen = krishkaScript.krishkaAnim.GetBool("Open");
+        }
         float timeLeft = duration;
         while (timeLeft > 0)
         {
@@ -103,6 +137,7 @@ public class BuckPearl : MonoBehaviour
             timeLeft -= 1f;
         }
         timerText.text = "Перловка готова, можно доставать";
+        allWaterScript.SetSecMaterial();
     }
 
     private void FillTable(int rowIndex, float temperature, float calories)
@@ -111,6 +146,17 @@ public class BuckPearl : MonoBehaviour
         {
             tableScript.tempValue[rowIndex].text = temperature.ToString();
             tableScript.kallValue[rowIndex].text = calories.ToString();
+        }
+    }
+
+    internal void SetMaterial()
+    {
+        Renderer renderer = targetGameObject.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            if (originalMaterial == null)
+                originalMaterial = renderer.material;
+            renderer.material = newMaterial;
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuckWater : MonoBehaviour
 {
+    internal bool isDone = false;
     [SerializeField] private Animator buckWater;
     [SerializeField] private GameObject waterPrefab;
     [SerializeField] private Vector3 WaterspawnPosition;
@@ -14,6 +15,9 @@ public class BuckWater : MonoBehaviour
     [SerializeField] private Vector3 newWaterSpawnPosition;
     [SerializeField] private Vector3 newWaterSize;
     [SerializeField] private KrishkaScript krishkaScript;
+    [SerializeField] private FireButtonScr FireScript;
+    [SerializeField] private GameObject targetGameObject;
+    [SerializeField] private Material newMaterial;
 
     private TableScript tableScript;
     private FireButtonScr fireButton;
@@ -21,6 +25,7 @@ public class BuckWater : MonoBehaviour
     private GameObject currentWater;
     private GameObject NewWater;
     private bool hasSinglePressOccurred = false;
+    private Material originalMaterial;
 
     private void Start()
     {
@@ -51,6 +56,7 @@ public class BuckWater : MonoBehaviour
                     {
                         hasSinglePressOccurred = true;
                         buckWater.SetTrigger("MoveToContainer");
+                        FireScript.ResetMaterial();
                         StartCoroutine(MoveBackAfterDelay(1.5f));
                         currentWater.SetActive(false);
                         StartCoroutine(StartTimer(timerDuration));
@@ -81,6 +87,7 @@ public class BuckWater : MonoBehaviour
         buckWater.SetTrigger("MoveOneMore");
         yield return new WaitForSeconds(0.8f);
         NewWater.SetActive(false);
+        FireScript.ResetMaterial();
         yield return new WaitForSeconds(delay);
         currentWater.SetActive(true);
         vaporParticleSystem.Play();
@@ -90,7 +97,9 @@ public class BuckWater : MonoBehaviour
         float calories = temperature * caloriesCoefficient;
         FillTable(1, temperature, calories);
         yield return new WaitForSeconds(2.5f);
-        timerText.text = "";
+        timerText.text = "Теперь вскипятите воду для каши";
+        isDone = true;
+        SetMaterial();
     }
 
     private void FillTable(int rowIndex, float temperature, float calories)
@@ -120,5 +129,27 @@ public class BuckWater : MonoBehaviour
             timeLeft -= 1f;
         }
         timerText.text = "Вода вскипела, можно переливать";
+        FireScript.SetMaterial();
+    }
+
+    internal void SetMaterial()
+    {
+        Renderer renderer = targetGameObject.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            if (originalMaterial == null)
+                originalMaterial = renderer.material;
+            renderer.material = newMaterial;
+        }
+    }
+
+    internal void ResetMaterial()
+    {
+        if (targetGameObject != null && originalMaterial != null)
+        {
+            Renderer renderer = targetGameObject.GetComponent<Renderer>();
+            if (renderer != null)
+                renderer.material = originalMaterial;
+        }
     }
 }
