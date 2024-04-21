@@ -33,10 +33,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -96,73 +94,73 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1494}
+      Script: {instanceID: 1496}
     - Class: 114
-      Script: {instanceID: 1506}
+      Script: {instanceID: 1508}
     - Class: 114
-      Script: {instanceID: 1526}
+      Script: {instanceID: 1528}
     - Class: 114
-      Script: {instanceID: 1676}
+      Script: {instanceID: 1678}
     - Class: 114
-      Script: {instanceID: 1734}
+      Script: {instanceID: 1736}
     - Class: 114
-      Script: {instanceID: 1776}
+      Script: {instanceID: 1778}
     - Class: 114
-      Script: {instanceID: 1876}
+      Script: {instanceID: 1878}
     - Class: 114
-      Script: {instanceID: 1924}
+      Script: {instanceID: 1926}
     - Class: 114
-      Script: {instanceID: 2054}
+      Script: {instanceID: 2056}
     - Class: 114
-      Script: {instanceID: 2062}
+      Script: {instanceID: 2064}
     - Class: 114
-      Script: {instanceID: 2172}
+      Script: {instanceID: 2174}
     - Class: 114
-      Script: {instanceID: 2352}
+      Script: {instanceID: 2354}
     - Class: 114
-      Script: {instanceID: 2364}
+      Script: {instanceID: 2366}
     - Class: 114
-      Script: {instanceID: 2408}
+      Script: {instanceID: 2410}
     - Class: 114
-      Script: {instanceID: 2472}
+      Script: {instanceID: 2474}
     - Class: 114
-      Script: {instanceID: 2514}
+      Script: {instanceID: 2516}
     - Class: 114
-      Script: {instanceID: 2640}
+      Script: {instanceID: 2642}
     - Class: 114
-      Script: {instanceID: 2708}
+      Script: {instanceID: 2710}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2822}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2844}
     - Class: 114
-      Script: {instanceID: 2912}
+      Script: {instanceID: 2914}
     - Class: 114
-      Script: {instanceID: 3024}
+      Script: {instanceID: 3026}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3352}
     - Class: 114
-      Script: {instanceID: 3446}
+      Script: {instanceID: 3448}
     - Class: 114
-      Script: {instanceID: 3452}
+      Script: {instanceID: 3454}
     - Class: 114
-      Script: {instanceID: 3660}
+      Script: {instanceID: 3662}
     - Class: 114
-      Script: {instanceID: 3768}
+      Script: {instanceID: 3770}
     - Class: 114
-      Script: {instanceID: 3882}
-    - Class: 114
-      Script: {instanceID: 3890}
+      Script: {instanceID: 3884}
     - Class: 114
       Script: {instanceID: 3892}
     - Class: 114
-      Script: {instanceID: 4090}
+      Script: {instanceID: 3894}
     - Class: 114
-      Script: {instanceID: 4122}
+      Script: {instanceID: 4092}
     - Class: 114
-      Script: {instanceID: 4128}
+      Script: {instanceID: 4124}
     - Class: 114
-      Script: {instanceID: 4156}
+      Script: {instanceID: 4130}
+    - Class: 114
+      Script: {instanceID: 4158}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -212,7 +210,7 @@ ScriptsOnlyBuild:
     className: BackgroundSound
   - hash:
       serializedVersion: 2
-      Hash: 65bbf469f3023c093ed2b52f54ecc794
+      Hash: da3e7e28dcf5f36af067047497c1005f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuckAllWater
@@ -356,7 +354,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: a15bc1ea7cb2971ce2564b0876b824e9
+      Hash: 7496124f9ce062adfdc8c1c8759dc5ec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuckWheat
@@ -668,7 +666,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: d7a0ede8bd9a7f775cd3fa30e1fe71bd
+      Hash: 58408c5364a12154714f0caf09713487
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuckWater
@@ -812,7 +810,7 @@ ScriptsOnlyBuild:
     className: CameraController
   - hash:
       serializedVersion: 2
-      Hash: 7cc2d2f7270bf0a30e02628dff3b2ac8
+      Hash: 169d216b59517d19e7489f211d4c5ce9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuckPearl
@@ -957,4 +955,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/My Files/Univer/Build/Kithen_Sim.exe
+  playerPath: D:/My Files/Build/Kithen_Sim.exe

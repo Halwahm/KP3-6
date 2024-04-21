@@ -9,6 +9,7 @@ public class FireButtonScr : MonoBehaviour
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private ParticleSystem smokeParticleSystem;
     internal float temperature = 0f;
+    private bool isBurning = false;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject targetGameObject;
     [SerializeField] private Material newMaterial;
@@ -29,6 +30,7 @@ public class FireButtonScr : MonoBehaviour
     {
         Invoke(nameof(TurnOnFire), 0.5f);
         GetComponent<Button>().interactable = false;
+        isBurning = true;
         StartCoroutine(UpdateTemperature());
         timerText.text = "“еперь откройте крышку и вскип€тите воду";
         SetMaterial();
@@ -41,11 +43,11 @@ public class FireButtonScr : MonoBehaviour
         fireSound.Play();
     }
 
-    private IEnumerator UpdateTemperature()
+    internal IEnumerator UpdateTemperature()
     {
-        while (true)
+        while (isBurning)
         {
-            temperature = Random.Range(200f, 270f);
+            temperature = Random.Range(89f, 93f);
             yield return new WaitForSeconds(3f);
         }
     }

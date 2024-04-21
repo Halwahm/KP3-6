@@ -22,6 +22,8 @@ public class BuckWheat : MonoBehaviour
     [SerializeField] private Material newMaterial;
     [SerializeField] private BuckAllWater allWaterScript;
     [SerializeField] private KrishkaScript krishkaScript;
+    [SerializeField] private GameObject BW;
+    [SerializeField] private Animator BWAnim;
 
     private GameObject currentPorridge;
     private GameObject currentWater;
@@ -85,7 +87,11 @@ public class BuckWheat : MonoBehaviour
 
     private IEnumerator MoveBackAfterDelay(float delay)
     {
+        yield return new WaitForSeconds(0.45f);
+        BW.SetActive(true);
+        BWAnim.SetBool("PorridgeDown", true);
         yield return new WaitForSeconds(delay);
+        BW.SetActive(false);
         buckWheat.SetTrigger("MoveBack");
         NewPorridge = Instantiate(prefabToInstantiate, newPorridgeSpawnPosition, Quaternion.identity);
         NewPorridge.SetActive(true);

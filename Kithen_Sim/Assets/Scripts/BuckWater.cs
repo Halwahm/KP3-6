@@ -18,10 +18,15 @@ public class BuckWater : MonoBehaviour
     [SerializeField] private FireButtonScr FireScript;
     [SerializeField] private GameObject targetGameObject;
     [SerializeField] private Material newMaterial;
+    [SerializeField] internal GameObject prefabWaterFromBowl;
+    [SerializeField] private Vector3 CoordwaterFromBowl;
+    [SerializeField] private Vector3 RotatedwaterFromBowl;
+    [SerializeField] private GameObject WtFromBowl;
 
     private TableScript tableScript;
     private FireButtonScr fireButton;
 
+    private GameObject waterFromBowl;
     private GameObject currentWater;
     private GameObject NewWater;
     private bool hasSinglePressOccurred = false;
@@ -57,7 +62,7 @@ public class BuckWater : MonoBehaviour
                         hasSinglePressOccurred = true;
                         buckWater.SetTrigger("MoveToContainer");
                         FireScript.ResetMaterial();
-                        StartCoroutine(MoveBackAfterDelay(1.5f));
+                        StartCoroutine(MoveBackAfterDelay(1.8f));
                         currentWater.SetActive(false);
                         StartCoroutine(StartTimer(timerDuration));
                     }
@@ -76,7 +81,12 @@ public class BuckWater : MonoBehaviour
 
     private IEnumerator MoveBackAfterDelay(float delay)
     {
+        yield return new WaitForSeconds(0.7f);
+        WtFromBowl.SetActive(true);
+        waterFromBowl = Instantiate(prefabWaterFromBowl, CoordwaterFromBowl, Quaternion.Euler(RotatedwaterFromBowl));
         yield return new WaitForSeconds(delay);
+        WtFromBowl.SetActive(false);
+        Destroy(waterFromBowl);
         buckWater.SetTrigger("MoveBack");
         NewWater = Instantiate(waterPrefab, newWaterSpawnPosition, Quaternion.identity);
         NewWater.transform.localScale = newWaterSize;
@@ -92,7 +102,8 @@ public class BuckWater : MonoBehaviour
         currentWater.SetActive(true);
         vaporParticleSystem.Play();
         timerText.text = "Вода вскипелась, загляните в таблицу";
-        float temperature = fireButton.temperature;
+        //float temperature = fireButton.temperature;
+        float temperature = 100f;
         float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(1);
         float calories = temperature * caloriesCoefficient;
         FillTable(1, temperature, calories);

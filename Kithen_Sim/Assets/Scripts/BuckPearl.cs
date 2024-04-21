@@ -23,6 +23,8 @@ public class BuckPearl : MonoBehaviour
     [SerializeField] private BuckAllWater allWaterScript;
     [SerializeField] private KrishkaScript krishkaScript;
     [SerializeField] private GameObject targetGameObject;
+    [SerializeField] private GameObject Barley;
+    [SerializeField] private Animator BarleyAnim;
 
     private GameObject currentPorridge;
     private GameObject currentWater;
@@ -89,7 +91,11 @@ public class BuckPearl : MonoBehaviour
 
     private IEnumerator MoveBackAfterDelay(float delay)
     {
+        yield return new WaitForSeconds(0.45f);
+        Barley.SetActive(true);
+        BarleyAnim.SetBool("PorridgeDown", true);
         yield return new WaitForSeconds(delay);
+        Barley.SetActive(false);
         buckPearl.SetTrigger("MoveBack");
         NewPorridge = Instantiate(prefabToInstantiate, newPorridgeSpawnPosition, Quaternion.identity);
         NewPorridge.SetActive(true);
@@ -107,16 +113,13 @@ public class BuckPearl : MonoBehaviour
         currentWater = Instantiate(waterBuck, waterSpawnPosition, Quaternion.identity);
         currentWater.transform.localScale = waterSize;
         vaporParticleSystem.Play();
-        float temperature = fireButton.temperature;
+        float temperature = Random.Range(89f, 93f);
         timerText.text = "Перловка приготовилась,загляните в таблицу";
         isDone = true;
         float caloriesCoefficient = tableScript.GetCaloriesCoefficientByIndex(0);
         float calories = temperature * caloriesCoefficient * 0.79f;
         FillTable(0, temperature, calories);
         yield return new WaitForSeconds(2.5f);
-        timerText.text = "Вскипятите воду для ещё одной каши";
-        SetMaterial();
-        yield return new WaitForSeconds(2f);
         timerText.text = "";
     }
 

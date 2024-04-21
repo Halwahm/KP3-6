@@ -21,7 +21,12 @@ public class BuckAllWater : MonoBehaviour
     [SerializeField] private GameObject targetGameObject;
     [SerializeField] private Material newMaterial;
     [SerializeField] private GameObject SectargetGameObject;
+    [SerializeField] internal GameObject prefabWaterFromBowl;
+    [SerializeField] private Vector3 CoordwaterFromBowl;
+    [SerializeField] private Vector3 RotatedwaterFromBowl;
+    [SerializeField] private GameObject WtFromBowl;
 
+    private GameObject waterFromBowl;
     private GameObject currentWater;
     private GameObject NewWater;
     private Material originalMaterial;
@@ -60,7 +65,7 @@ public class BuckAllWater : MonoBehaviour
                     if (isOpen && fireButton.temperature != 0f && BWScript.isDone)
                     {
                         buckWater.SetTrigger("MoveToContainer");
-                        StartCoroutine(MoveBackAfterDelay(1.5f));
+                        StartCoroutine(MoveBackAfterDelay(1.8f));
                         waterScript.ResetMaterial();
                         currentWater.SetActive(false);
                         StartCoroutine(StartTimer(timerDuration));
@@ -78,7 +83,12 @@ public class BuckAllWater : MonoBehaviour
 
     private IEnumerator MoveBackAfterDelay(float delay)
     {
+        yield return new WaitForSeconds(0.7f);
+        WtFromBowl.SetActive(true);
+        waterFromBowl = Instantiate(prefabWaterFromBowl, CoordwaterFromBowl, Quaternion.Euler(RotatedwaterFromBowl));
         yield return new WaitForSeconds(delay);
+        WtFromBowl.SetActive(false);
+        Destroy(waterFromBowl);
         buckWater.SetTrigger("MoveBack");
         NewWater = Instantiate(prefabToInstantiate, newWaterSpawnPosition, Quaternion.identity);
         NewWater.transform.localScale = newWaterSize;
@@ -121,7 +131,6 @@ public class BuckAllWater : MonoBehaviour
             isSecondMaterialSet = true;
             isDoneSec = true;
         }
-        
     }
 
     internal void OnMoveBackCompleted()
