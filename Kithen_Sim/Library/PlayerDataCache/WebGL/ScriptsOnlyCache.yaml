@@ -955,4 +955,4 @@ ScriptsOnlyBuild:
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/My Files/KP3-6/WebGL
+  playerPath: D:/My Files/WebGL

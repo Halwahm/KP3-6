@@ -37,7 +37,7 @@ public class DrovaIn : MonoBehaviour
                         drovAnim.SetBool("drovAnim", true);
                         if (!nextButton.interactable)
                             nextButton.interactable = true;
-                        timerText.text = "Закройте дверцу и зажгите огонь (в кнопке 'Практика')";
+                        timerText.text = "Закройте дверцу и зажгите огонь (в кнопке 'Practice')";
                     }
                     else if (!_dScript.isDoorOpen)
                         timerText.text = "Откройте дверцу ёмкости для топлива";

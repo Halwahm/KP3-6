@@ -838,7 +838,6 @@ IL2CPP_EXTERN_C String_t* _stringLiteralA3DFC0C77ACADE0EE48DCC73E795A597D0270A73
 IL2CPP_EXTERN_C String_t* _stringLiteralA6107EE62A5874EF8D2DEAC7D3C0A9F07B89E096;
 IL2CPP_EXTERN_C String_t* _stringLiteralA87D266F5AAE1AF5998468D25833A8C6AD50D4FD;
 IL2CPP_EXTERN_C String_t* _stringLiteralAB3448E21FA53C63C06270903A13B17D02935BE0;
-IL2CPP_EXTERN_C String_t* _stringLiteralAF372212547AB8292CEE577553C19D4C89FFA078;
 IL2CPP_EXTERN_C String_t* _stringLiteralB3A9227180176E892116A238155993AA52331551;
 IL2CPP_EXTERN_C String_t* _stringLiteralB90AEB71EEF73D732FF86A926D89C87006CD9ADF;
 IL2CPP_EXTERN_C String_t* _stringLiteralBA1039E8CDAE53E44AC3E6185B0871F3D031A476;
@@ -856,6 +855,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteralD2181D938CD0978CB0395D818B3957228DD07FCC
 IL2CPP_EXTERN_C String_t* _stringLiteralD579F97F4A33C344330AED1285CC5B545618BC19;
 IL2CPP_EXTERN_C String_t* _stringLiteralD99C319B457682A09D028AF022D0B2EE6B4D48A6;
 IL2CPP_EXTERN_C String_t* _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709;
+IL2CPP_EXTERN_C String_t* _stringLiteralDBF391625D2F8D377800E4E4A8E6AF1C37DFA684;
 IL2CPP_EXTERN_C String_t* _stringLiteralDECFB8F380101725B06EAE2D3F983211A277171C;
 IL2CPP_EXTERN_C String_t* _stringLiteralDF39AEB53D67A2E3B5538325D74F3A258AF1F8F3;
 IL2CPP_EXTERN_C String_t* _stringLiteralE2138FA8D137D1C6C81747FE1638815DDE9177B0;
@@ -31870,7 +31870,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DrovaIn_Update_mED0EEB8D49FC27ACE92E2F5B
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral0A12A730232CD6BB5210DDE5AF91054B11CE9C22);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1CFBFF5C3B798D7F932FD426F3AE7DC807E3886E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF372212547AB8292CEE577553C19D4C89FFA078);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDBF391625D2F8D377800E4E4A8E6AF1C37DFA684);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralFD2F2AF61AB38A1028BF93AB72E9AD3C87A2B154);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -31964,9 +31964,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DrovaIn_Update_mED0EEB8D49FC27ACE92E2F5B
 
 IL_009a:
 	{
-		// timerText.text = "�������� ������ � ������� ����� (� ������ '��������')";
+		// timerText.text = "�������� ������ � ������� ����� (� ������ 'Practice')";
 		TMP_Text_t86179C97C713E1A6B3751B48DC7A16C874A7B262 * L_20 = __this->get_timerText_7();
-		VirtActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_20, _stringLiteralAF372212547AB8292CEE577553C19D4C89FFA078);
+		VirtActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_20, _stringLiteralDBF391625D2F8D377800E4E4A8E6AF1C37DFA684);
 		// }
 		return;
 	}
