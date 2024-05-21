@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\krishkascript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\tablescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\tablescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tablescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\showtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\showtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\showtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buckwheat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|d:\\my files\\kp3-6\\kithen_sim\\assets\\scripts\\drovain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|D:\\My Files\\KP3-6\\Kithen_Sim\\assets\\scripts\\drovain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1AF8D71-0A32-B535-B12F-2A4FE0A7A573}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\drovain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\KrishkaScript.cs",
               "ToolTip": "D:\\My Files\\KP3-6\\Kithen_Sim\\Assets\\Scripts\\KrishkaScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\KrishkaScript.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAIwA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-05T15:26:23.697Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "Assets\\Scripts\\TableScript.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAuwD0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-05T15:25:24.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-05T15:25:24.231Z"
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "Assets\\Scripts\\ShowTable.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-05T15:25:22.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-05T15:25:22.682Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "Assets\\Scripts\\DrovaIn.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAAwDAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T09:34:24.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-27T09:34:24.612Z"
             },
             {
               "$type": "Document",
@@ -106,8 +103,7 @@
               "RelativeToolTip": "Assets\\Scripts\\BuckWheat.cs",
               "ViewState": "AQIAADEAAAAAAAAAAAAswKYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T13:07:00.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T13:07:00.534Z"
             },
             {
               "$type": "Document",
@@ -119,8 +115,7 @@
               "RelativeToolTip": "Assets\\Scripts\\BuckAllWater.cs",
               "ViewState": "AQIAAI0AAAAAAAAAAAAowK8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T12:25:23.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-20T12:25:23.094Z"
             },
             {
               "$type": "Document",

@@ -6247,7 +6247,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Light up the kitchen
+  m_Text: "\u0417\u0430\u0436\u0435\u0447\u044C \u043A\u0443\u0445\u043D\u044E"
 --- !u!222 &662848933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29729,7 +29729,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chassis
+  m_Text: "\u0428\u0430\u0441\u0441\u0438"
 --- !u!222 &5733375498299047712
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29933,7 +29933,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Firewood
+  m_Text: "\u0414\u0440\u043E\u0432\u0430"
 --- !u!224 &5733375498316338665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30316,7 +30316,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pipe
+  m_Text: "\u0422\u0440\u0443\u0431\u0430"
 --- !u!224 &5733375498885337737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30385,7 +30385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boilers
+  m_Text: "\u041A\u043E\u0442\u043B\u044B"
 --- !u!224 &5733375499091578558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30581,7 +30581,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Combustion chamber
+  m_Text: "\u041A\u0430\u043C\u0435\u0440\u0430 \u0441\u0433\u043E\u0440\u0430\u043D\u0438\u044F"
 --- !u!114 &5733375499303793280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34694,7 +34694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8621839132209353080
 MonoBehaviour:
   m_ObjectHideFlags: 0
